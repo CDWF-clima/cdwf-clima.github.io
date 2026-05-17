@@ -9,14 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --sky:   #0d2b45;
-      --ocean: #1a4a6b;
-      --teal:  #2e7d8a;
-      --mist:  #a8cdd6;
-      --sand:  #e8d5b0;
-      --warm:  #d4956a;
-      --light: #f5f0e8;
-      --text:  #1a1a2e;
+      --green:       #008047;
+      --green-dark:  #005c33;
+      --green-deep:  #003d22;
+      --green-light: #e6f4ed;
+      --gold:        #f0a500;
+      --cream:       #f8f5ef;
+      --white:       #ffffff;
+      --text:        #1a2e23;
+      --text-mid:    #3a5045;
+      --leaf:        #a8d5bc;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,53 +26,77 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--light);
+      background: var(--cream);
       color: var(--text);
     }
 
     /* NAV */
     nav {
-      background: var(--sky);
+      background: var(--green-deep);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2.5rem;
-      border-bottom: 1px solid rgba(168,205,214,.15);
+      padding: .75rem 2.5rem;
+      border-bottom: 1px solid rgba(0,128,71,.3);
     }
-    .nav-logo {
+    .nav-brand {
+      display: flex; align-items: center; gap: .7rem;
+      text-decoration: none;
+    }
+    .nav-brand img {
+      height: 34px; width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .nav-brand-text {
       font-family: 'Playfair Display', serif;
-      color: var(--mist); text-decoration: none; font-size: 1.05rem;
+      font-size: .95rem; color: var(--leaf); letter-spacing: .06em;
     }
     .nav-back {
-      font-size: .82rem; color: rgba(168,205,214,.7); text-decoration: none;
+      font-size: .82rem; color: rgba(168,213,188,.75); text-decoration: none;
       display: flex; align-items: center; gap: .4rem; transition: color .2s;
     }
-    .nav-back:hover { color: var(--mist); }
+    .nav-back:hover { color: var(--leaf); }
     .nav-back::before { content: '←'; }
 
-    /* HEADER BAND */
+    /* PAGE HEADER */
     .page-header {
-      background: var(--sky);
+      background: var(--green-deep);
       padding: 3.5rem 2rem 5rem;
       text-align: center;
       position: relative; overflow: hidden;
     }
+    .page-header-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,128,71,.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,128,71,.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
     .page-header::after {
       content: '';
-      position: absolute; bottom: -2px; left: 0; right: 0;
-      height: 60px;
-      background: var(--light);
+      position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+      background: var(--cream);
       clip-path: ellipse(55% 100% at 50% 100%);
     }
+    .page-logo {
+      position: relative; z-index: 2; margin-bottom: 1.5rem;
+    }
+    .page-logo img {
+      height: 70px; width: auto;
+      filter: brightness(0) invert(1) opacity(.9);
+    }
     .page-kicker {
+      position: relative; z-index: 2;
       font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: .75rem;
+      color: var(--gold); margin-bottom: .75rem;
     }
     .page-title {
+      position: relative; z-index: 2;
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3.4rem);
-      color: var(--white, #fff); line-height: 1.15;
+      color: var(--white); line-height: 1.15;
     }
-    .page-title em { font-style: italic; color: var(--mist); }
+    .page-title em { font-style: italic; color: var(--leaf); }
     .page-subtitle {
+      position: relative; z-index: 2;
       margin-top: 1rem; color: rgba(255,255,255,.6);
       font-size: .95rem; font-weight: 300;
     }
@@ -82,38 +108,36 @@
     .year-block { margin-bottom: 3.5rem; }
 
     .year-heading {
-      display: flex; align-items: center; gap: 1.2rem;
-      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;
     }
     .year-label {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem; color: var(--sky); font-weight: 700;
+      font-size: 2.4rem; color: var(--green-dark); font-weight: 700;
     }
-    .year-line {
-      flex: 1; height: 1px; background: rgba(13,43,69,.15);
-    }
+    .year-line { flex: 1; height: 2px; background: var(--green); opacity: .25; border-radius: 1px; }
 
     /* SESSION CARD */
     .session-list { display: flex; flex-direction: column; gap: .85rem; }
 
     .session-card {
       display: flex; align-items: flex-start; gap: 1.1rem;
-      background: #fff;
-      border: 1px solid rgba(13,43,69,.08);
+      background: var(--white);
+      border: 1px solid rgba(0,128,71,.12);
+      border-left: 4px solid var(--green);
       border-radius: .6rem; padding: 1rem 1.25rem;
-      transition: box-shadow .2s, border-color .2s;
+      transition: box-shadow .2s, border-left-color .2s;
     }
     .session-card:hover {
-      box-shadow: 0 4px 18px rgba(13,43,69,.1);
-      border-color: rgba(46,125,138,.25);
+      box-shadow: 0 4px 18px rgba(0,61,34,.1);
+      border-left-color: var(--green-dark);
     }
 
     .session-num {
       min-width: 2.4rem; height: 2.4rem;
-      background: var(--sky); color: var(--mist);
+      background: var(--green); color: var(--white);
       border-radius: .4rem;
       display: flex; align-items: center; justify-content: center;
-      font-size: .72rem; font-weight: 500; letter-spacing: .05em;
+      font-size: .7rem; font-weight: 500; letter-spacing: .03em;
       flex-shrink: 0; margin-top: .1rem;
     }
 
@@ -121,22 +145,19 @@
 
     .session-title {
       font-family: 'Playfair Display', serif;
-      font-size: .98rem; color: var(--sky); line-height: 1.35;
-      margin-bottom: .3rem;
+      font-size: .98rem; color: var(--green-dark); line-height: 1.35; margin-bottom: .3rem;
     }
-
     .session-speaker {
-      font-size: .8rem; color: #5a6a80; font-weight: 300;
+      font-size: .8rem; color: var(--text-mid); font-weight: 300;
     }
-
     .session-link {
-      display: inline-flex; align-items: center; gap: .3rem;
+      display: inline-flex; align-items: center; gap: .35rem;
       margin-top: .55rem; font-size: .78rem; font-weight: 500;
-      color: var(--teal); text-decoration: none;
-      border-bottom: 1px dotted rgba(46,125,138,.4);
+      color: var(--green); text-decoration: none;
+      border-bottom: 1px dotted rgba(0,128,71,.4);
       padding-bottom: .05rem; transition: color .2s;
     }
-    .session-link:hover { color: var(--ocean); }
+    .session-link:hover { color: var(--green-dark); }
 
     .yt-icon {
       display: inline-block; width: 16px; height: 11px;
@@ -150,25 +171,48 @@
       border-bottom: 3.5px solid transparent;
       border-left: 6px solid #fff;
     }
+    .fb-icon {
+      display: inline-block; width: 16px; height: 16px;
+      background: #1877f2; border-radius: 3px;
+      position: relative; flex-shrink: 0;
+    }
+    .fb-icon::after {
+      content: 'f';
+      position: absolute; top: 50%; left: 50%; transform: translate(-45%, -50%);
+      color: #fff; font-size: 11px; font-weight: 700; font-family: serif;
+    }
 
     /* FOOTER */
     footer {
-      background: var(--sky);
+      background: var(--green-deep);
       text-align: center; padding: 2.5rem 1.5rem;
-      color: rgba(168,205,214,.6); font-size: .8rem;
+      color: rgba(168,213,188,.6); font-size: .8rem;
+      border-top: 3px solid var(--green);
     }
-    footer a { color: var(--mist); text-decoration: none; }
-    footer a:hover { color: var(--warm); }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+    .footer-logo-img {
+      height: 44px; width: auto; margin-bottom: .3rem;
+      filter: brightness(0) invert(1) opacity(.75);
+    }
+    footer a { color: var(--leaf); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">CDWF</a>
+  <a class="nav-brand" href="index.html">
+    <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF_logo.png" alt="CDWF Logo" />
+    <span class="nav-brand-text">CDWF</span>
+  </a>
   <a class="nav-back" href="index.html">Back to home</a>
 </nav>
 
 <div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="page-logo">
+    <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF_logo.png" alt="CDWF Logo" />
+  </div>
   <p class="page-kicker">Archive</p>
   <h1 class="page-title">Webinar <em>Sessions</em></h1>
   <p class="page-subtitle">Year-wise listing of all Climate Dialogues: Way Forward webinars</p>
@@ -421,7 +465,7 @@
           <p class="session-title">Machine Learning in Climate Science</p>
           <p class="session-speaker">Dr. Bedartha Goswami</p>
           <a class="session-link" href="https://fb.watch/sbbVoPzuV4/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -432,7 +476,7 @@
           <p class="session-title">From Science Fairs to Science Frontiers: My Career as a Climate Science Researcher</p>
           <p class="session-speaker">Sasanka Talukdar</p>
           <a class="session-link" href="https://fb.watch/sbbYmpY4CR/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -443,7 +487,7 @@
           <p class="session-title">What is All the Fuss About Fuzzy Air Over Guwahati?</p>
           <p class="session-speaker">Dr. Gayatry Kalita</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/387027437526267" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -454,7 +498,7 @@
           <p class="session-title">Progress by Innovation</p>
           <p class="session-speaker">Rituraj Borah</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/995464558902922" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -465,7 +509,7 @@
           <p class="session-title">Physical Oceanography and Climate Science: Career Horizons</p>
           <p class="session-speaker">Bijit Kumar Kalita</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/1072423887386725" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -487,7 +531,7 @@
           <p class="session-title">Peeping Inside a Cloud: In a Laboratory</p>
           <p class="session-speaker">Martanda Gautam</p>
           <a class="session-link" href="https://fb.watch/re7VDQwvUP/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -498,7 +542,7 @@
           <p class="session-title">Climate Science Journalism</p>
           <p class="session-speaker">Chandrani Sinha</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/747029797439977" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -509,7 +553,7 @@
           <p class="session-title">Co-creating a Sustainable Future Through Imagination and Practice</p>
           <p class="session-speaker">Supriya Khound</p>
           <a class="session-link" href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=1730060060845785" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -520,7 +564,7 @@
           <p class="session-title">Climate Risk Management for Financial Institutions</p>
           <p class="session-speaker">Sumanta Boruah</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/6310776759045209/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -531,7 +575,7 @@
           <p class="session-title">A "Budget" in the Atmosphere</p>
           <p class="session-speaker">Dr. Tamanna Subba</p>
           <a class="session-link" href="https://fb.watch/mUeVDRSZoh/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -542,7 +586,7 @@
           <p class="session-title">Low-Cost Instruments for Meteorological Observations</p>
           <p class="session-speaker">Prof. Utpal Sarma</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/296612312729605" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -553,7 +597,7 @@
           <p class="session-title">Operational Forecast: Bridging the Gap Between Research and its Application</p>
           <p class="session-speaker">Dr. Himadri Baishya</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/617360110362910/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -564,7 +608,7 @@
           <p class="session-title">Non-native Trees as a Management Option for Climate Change</p>
           <p class="session-speaker">Reneema Hazarika</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/986875976011160" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -575,7 +619,7 @@
           <p class="session-title">Rainfall over Northeast India: Pre-monsoon (Bordoichila) and Monsoon Thunderstorms</p>
           <p class="session-speaker">Dr. Abida Choudhury</p>
           <a class="session-link" href="https://fb.watch/jxsmi4O7AA/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -586,7 +630,7 @@
           <p class="session-title">Assam Floods: The Need, Challenges, and Scopes of Wider Attention</p>
           <p class="session-speaker">Adil Hussain</p>
           <a class="session-link" href="https://fb.watch/iYoKyoYnJ7/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -597,7 +641,7 @@
           <p class="session-title">Tropical Cyclones: Birth, Growth &amp; Death</p>
           <p class="session-speaker">Emmanuel Rongmie</p>
           <a class="session-link" href="https://fb.watch/inufnckoD1/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -619,7 +663,7 @@
           <p class="session-title">Multidimensional Aspects of Household Fuel Choice in India</p>
           <p class="session-speaker">Jayashree Dutta</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/465391079041707" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -630,7 +674,7 @@
           <p class="session-title">Low-Cost Air Quality Sensors and Higher Education in Europe</p>
           <p class="session-speaker">Arunik Baruah</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/1133784607257755/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -641,7 +685,7 @@
           <p class="session-title">Cloud Electrification and Lightning</p>
           <p class="session-speaker">Dr. Dipjyoti Mudiar</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/788895692335166/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -652,7 +696,7 @@
           <p class="session-title">Presentation is an Integral Part of Research</p>
           <p class="session-speaker">Pritam Jyoti Borah</p>
           <a class="session-link" href="https://fb.watch/fuWaxAmJfJ/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -663,7 +707,7 @@
           <p class="session-title">Climate Change and Sustainable Development Goal 13: A North-East India Perspective</p>
           <p class="session-speaker">Dr. Binita Pathak</p>
           <a class="session-link" href="https://fb.watch/fFMOpcu9u7/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -674,7 +718,7 @@
           <p class="session-title">How do we Prepare Northeast India to Adapt to the Changing Climate?</p>
           <p class="session-speaker">Prof. Bhupendra Nath Goswami</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/452099443461155/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -685,7 +729,7 @@
           <p class="session-title">Environmental Sustainability in the Fashion Industry</p>
           <p class="session-speaker">Jagrity Phukan</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/1081633929120142" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -696,7 +740,7 @@
           <p class="session-title">Mitigating Floods and Career Opportunities in Higher Education</p>
           <p class="session-speaker">Dr. Manabendra Saharia</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/512901350536171" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -707,7 +751,7 @@
           <p class="session-title">Witnessing the Evolution of Atmospheric Sciences Research in NE India</p>
           <p class="session-speaker">Prof. Sanjay Sharma</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/549701770091832" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -718,7 +762,7 @@
           <p class="session-title">Earth System Science Teaching and Research: Challenges and Opportunities Faced So Far</p>
           <p class="session-speaker">Partha Pratim Gogoi</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/1078361296079551" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -729,7 +773,7 @@
           <p class="session-title">Climate Change: Are You Getting Affected?</p>
           <p class="session-speaker">Bornali Sarma Boruah · Nilakshi Gogoi Saikia · Pramathesh Borkotoky</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/469102135004968" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -740,7 +784,7 @@
           <p class="session-title">Antarctica — A Global "Thermostat": Tales from the Coldest, Highest, Windiest, and Driest Continent</p>
           <p class="session-speaker">Dr. Pranab Deb</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/1909539355900826" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -751,7 +795,7 @@
           <p class="session-title">Planning for our Future: Sustainable Cities for Assam</p>
           <p class="session-speaker">Spondon Bhagowati</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/230392212609982" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -762,7 +806,7 @@
           <p class="session-title">Importance of Atmospheric Aerosol: A Northeast India Perspective</p>
           <p class="session-speaker">Dr. Gayatry Kalita</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/5276445992400025" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -773,7 +817,7 @@
           <p class="session-title">Why do we Need the Environmental Impact Assessment?</p>
           <p class="session-speaker">Mayuri Phukan</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/534292091240682" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -784,7 +828,7 @@
           <p class="session-title">Clouds as We Measure and Understand</p>
           <p class="session-speaker">Dr. Mahen Konwar</p>
           <a class="session-link" href="https://fb.watch/k_GYLE6gWO/" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -795,7 +839,7 @@
           <p class="session-title">Introductory Session</p>
           <p class="session-speaker">Dr. Bidyut Bikash Goswami · Sagarmoy Phukan · Dr. Nabanita Borah</p>
           <a class="session-link" href="https://www.facebook.com/anaajoree/videos/2974080552847974" target="_blank">
-            <span class="yt-icon" style="background:#1877f2;"></span> Watch on Facebook
+            <span class="fb-icon"></span> Watch on Facebook
           </a>
         </div>
       </div>
@@ -806,8 +850,13 @@
 </main>
 
 <footer>
-  <p><a href="index.html">← Back to CDWF Home</a></p>
-  <p style="margin-top:.75rem; opacity:.7;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
+  <div class="footer-inner">
+    <img class="footer-logo-img"
+         src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF_logo.png"
+         alt="CDWF Logo" />
+    <p><a href="index.html">← Back to CDWF Home</a></p>
+    <p style="margin-top:.5rem; opacity:.6;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
+  </div>
 </footer>
 
 </body>
