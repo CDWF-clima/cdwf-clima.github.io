@@ -456,7 +456,7 @@
 </section>
 
 <!-- WEBINARS -->
-<section id="webinars">
+<!-- <section id="webinars">
   <div class="container">
     <p class="section-label">Latest webinar</p>
     <h2 class="section-title">Webinars</h2>
@@ -481,7 +481,33 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+  <script>
+  const CHANNEL_ID = 'YOUR_CHANNEL_ID'; // from your YouTube channel URL
+
+  async function loadLatestWebinar() {
+    const rss = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+    const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rss)}`;
+
+    const res = await fetch(api);
+    const data = await res.json();
+    const latest = data.items[0];
+
+    const videoId = latest.link.split('v=')[1];
+    const title = latest.title;
+    const publishedAt = new Date(latest.pubDate);
+    const year = publishedAt.getFullYear();
+
+    document.getElementById('latest-webinar-iframe').src =
+      `https://www.youtube.com/embed/${videoId}`;
+    document.getElementById('latest-webinar-iframe').title = title;
+    document.getElementById('webinar-tag').textContent = `${year}`;
+    document.getElementById('webinar-title').textContent = title;
+  }
+
+  loadLatestWebinar();
+</script>
 
 <!-- WORKSHOPS -->
 <section id="workshops">
