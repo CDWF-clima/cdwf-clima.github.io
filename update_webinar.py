@@ -25,6 +25,12 @@ year = published[:4]
 
 media_group = entry.find("media:group", ns)
 description = media_group.find("media:description", ns).text or ""
+
+# Keep only the portion before "Hosts:" (or change to whatever marker fits your format)
+cutoff_marker = "𝐇𝐨𝐬𝐭𝐬:"
+if cutoff_marker in description:
+    description = description.split(cutoff_marker)[0].strip()
+
 description_html = description.replace("\n", "<br/>")
 
 with open("index.html", "r", encoding="utf-8") as f:
