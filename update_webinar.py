@@ -25,7 +25,7 @@ year = published[:4]
 
 media_group = entry.find("media:group", ns)
 description = media_group.find("media:description", ns).text or ""
-
+print(repr(description))
 # Keep only the portion before "Hosts:" (or change to whatever marker fits your format)
 cutoff_marker = "𝐇𝐨𝐬𝐭𝐬:"
 if cutoff_marker in description:
