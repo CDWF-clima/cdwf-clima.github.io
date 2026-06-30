@@ -510,27 +510,37 @@
 </section>
 
 <script>
-  const PLAYLIST_ID = 'PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC'; // ← from your playlist URL after "list="
+  const PLAYLIST_ID = 'PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC';
 
   async function loadLatestWebinar() {
     try {
-      const rss = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
-      const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rss)}`;
+      const rssUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
+      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
 
-      const res = await fetch(api);
-      const data = await res.json();
+      const res = await fetch(proxyUrl);
+      const xmlText = await res.text();
 
-      if (!data.items || data.items.length === 0) {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlText, 'text/xml');
+      const entries = xml.getElementsByTagName('entry');
+
+      if (!entries || entries.length === 0) {
         console.warn('No videos found in playlist.');
         return;
       }
 
-      const latest = data.items[0]; // RSS feeds list newest first
-      const videoId = latest.link.split('v=')[1];
-      const title = latest.title;
-      const description = latest.description || '';
-      const publishedAt = new Date(latest.pubDate);
-      const year = publishedAt.getFullYear();
+      const latest = entries[0]; // newest first
+      const videoId = latest.getElementsByTagName('yt:videoId')[0].textContent;
+      const title = latest.getElementsByTagName('title')[0].textContent;
+      const published = latest.getElementsByTagName('published')[0].textContent;
+      const year = new Date(published).getFullYear();
+
+      let description = '';
+      const mediaGroup = latest.getElementsByTagName('media:group')[0];
+      if (mediaGroup) {
+        const descTag = mediaGroup.getElementsByTagName('media:description')[0];
+        if (descTag) description = descTag.textContent;
+      }
 
       document.getElementById('latest-webinar-iframe').src =
         `https://www.youtube.com/embed/${videoId}`;
