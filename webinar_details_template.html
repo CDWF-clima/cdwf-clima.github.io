@@ -100,3 +100,137 @@
       margin-top: 1rem; color: rgba(255,255,255,.6);
       font-size: .95rem; font-weight: 300;
     }
+
+    /* MAIN */
+    main { max-width: 860px; margin-inline: auto; padding: 4rem 1.5rem 6rem; }
+
+    /* YEAR SECTION */
+    .year-block { margin-bottom: 3.5rem; }
+
+    .year-heading {
+      display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;
+    }
+    .year-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; color: var(--green-dark); font-weight: 700;
+    }
+    .year-line { flex: 1; height: 2px; background: var(--green); opacity: .25; border-radius: 1px; }
+
+    /* SESSION CARD */
+    .session-list { display: flex; flex-direction: column; gap: .85rem; }
+
+    .session-card {
+      display: flex; align-items: flex-start; gap: 1.1rem;
+      background: var(--white);
+      border: 1px solid rgba(0,128,71,.12);
+      border-left: 4px solid var(--green);
+      border-radius: .6rem; padding: 1rem 1.25rem;
+      transition: box-shadow .2s, border-left-color .2s;
+    }
+    .session-card:hover {
+      box-shadow: 0 4px 18px rgba(0,61,34,.1);
+      border-left-color: var(--green-dark);
+    }
+
+    .session-num {
+      min-width: 2.4rem; height: 2.4rem;
+      background: var(--green); color: var(--white);
+      border-radius: .4rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 500; letter-spacing: .03em;
+      flex-shrink: 0; margin-top: .1rem;
+    }
+
+    .session-body { flex: 1; }
+
+    .session-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .98rem; color: var(--green-dark); line-height: 1.35; margin-bottom: .3rem;
+    }
+    .session-speaker {
+      font-size: .8rem; color: var(--text-mid); font-weight: 300;
+    }
+    .session-link {
+      display: inline-flex; align-items: center; gap: .35rem;
+      margin-top: .55rem; font-size: .78rem; font-weight: 500;
+      color: var(--green); text-decoration: none;
+      border-bottom: 1px dotted rgba(0,128,71,.4);
+      padding-bottom: .05rem; transition: color .2s;
+    }
+    .session-link:hover { color: var(--green-dark); }
+
+    .yt-icon {
+      display: inline-block; width: 16px; height: 11px;
+      background: #ff0000; border-radius: 3px;
+      position: relative; flex-shrink: 0;
+    }
+    .yt-icon::after {
+      content: '';
+      position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%);
+      border-top: 3.5px solid transparent;
+      border-bottom: 3.5px solid transparent;
+      border-left: 6px solid #fff;
+    }
+    .fb-icon {
+      display: inline-block; width: 16px; height: 16px;
+      background: #1877f2; border-radius: 3px;
+      position: relative; flex-shrink: 0;
+    }
+    .fb-icon::after {
+      content: 'f';
+      position: absolute; top: 50%; left: 50%; transform: translate(-45%, -50%);
+      color: #fff; font-size: 11px; font-weight: 700; font-family: serif;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-deep);
+      text-align: center; padding: 2.5rem 1.5rem;
+      color: rgba(168,213,188,.6); font-size: .8rem;
+      border-top: 3px solid var(--green);
+    }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+    .footer-logo-img {
+      height: 44px; width: auto; margin-bottom: .3rem;
+      filter: brightness(0) invert(1) opacity(.75);
+    }
+    footer a { color: var(--leaf); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png" alt="CDWF Logo" />
+    <span class="nav-brand-text">CDWF</span>
+  </a>
+  <a class="nav-back" href="index.html">Back to home</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="page-logo">
+    <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png" alt="CDWF Logo" />
+  </div>
+  <p class="page-kicker">Archive</p>
+  <h1 class="page-title">Webinar <em>Sessions</em></h1>
+  <p class="page-subtitle">Year-wise listing of all Climate Dialogues: Way Forward webinars</p>
+</div>
+
+<main>
+  <!--WEBINAR_ARCHIVE-->
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <img class="footer-logo-img"
+         src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png"
+         alt="CDWF Logo" />
+    <p><a href="index.html">← Back to CDWF Home</a></p>
+    <p style="margin-top:.5rem; opacity:.6;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
+  </div>
+</footer>
+
+</body>
+</html>
