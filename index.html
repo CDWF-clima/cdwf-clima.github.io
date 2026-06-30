@@ -514,7 +514,7 @@
 
   async function loadLatestWebinar() {
     try {
-      const rss = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC}`;
+      const rss = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
       const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rss)}`;
 
       const res = await fetch(api);
