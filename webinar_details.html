@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webinar Archive – CDWF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:       #008047;
+      --green-dark:  #005c33;
+      --green-deep:  #003d22;
+      --green-light: #e6f4ed;
+      --gold:        #f0a500;
+      --cream:       #f8f5ef;
+      --white:       #ffffff;
+      --text:        #1a2e23;
+      --text-mid:    #3a5045;
+      --leaf:        #a8d5bc;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    /* NAV */
+    nav {
+      background: var(--green-deep);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .75rem 2.5rem;
+      border-bottom: 1px solid rgba(0,128,71,.3);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: .7rem;
+      text-decoration: none;
+    }
+    .nav-brand img {
+      height: 34px; width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .nav-brand-text {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem; color: var(--leaf); letter-spacing: .06em;
+    }
+    .nav-back {
+      font-size: .82rem; color: rgba(168,213,188,.75); text-decoration: none;
+      display: flex; align-items: center; gap: .4rem; transition: color .2s;
+    }
+    .nav-back:hover { color: var(--leaf); }
+    .nav-back::before { content: '←'; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--green-deep);
+      padding: 3.5rem 2rem 5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-header-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,128,71,.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,128,71,.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+      background: var(--cream);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .page-logo {
+      position: relative; z-index: 2; margin-bottom: 1.5rem;
+    }
+    .page-logo img {
+      height: 70px; width: auto;
+      filter: brightness(0) invert(1) opacity(.9);
+    }
+    .page-kicker {
+      position: relative; z-index: 2;
+      font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .75rem;
+    }
+    .page-title {
+      position: relative; z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      color: var(--white); line-height: 1.15;
+    }
+    .page-title em { font-style: italic; color: var(--leaf); }
+    .page-subtitle {
+      position: relative; z-index: 2;
+      margin-top: 1rem; color: rgba(255,255,255,.6);
+      font-size: .95rem; font-weight: 300;
+    }
