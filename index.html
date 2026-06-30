@@ -493,71 +493,21 @@
       <div class="video-wrapper">
         <iframe
           id="latest-webinar-iframe"
-          src=""
-          title="Latest CDWF Webinar"
+          src="https://www.youtube.com/embed/<!--WEBINAR_VIDEO_ID-->"
+          title="<!--WEBINAR_TITLE-->"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
       </div>
       <div class="video-meta">
-        <p class="video-tag" id="webinar-tag">Loading...</p>
-        <h3 class="video-title" id="webinar-title">Loading latest webinar...</h3>
-        <p class="video-desc" id="webinar-desc"></p>
+        <p class="video-tag"><!--WEBINAR_YEAR--></p>
+        <h3 class="video-title"><!--WEBINAR_TITLE--></h3>
+        <p class="video-desc"><!--WEBINAR_DESC--></p>
         <a class="archive-link" href="webinar_details.html">View full webinar archive</a>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  const PLAYLIST_ID = 'PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC';
-
-  async function loadLatestWebinar() {
-    try {
-      const rssUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
-
-      const res = await fetch(proxyUrl);
-      const xmlText = await res.text();
-
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, 'text/xml');
-      const entries = xml.getElementsByTagName('entry');
-
-      if (!entries || entries.length === 0) {
-        console.warn('No videos found in playlist.');
-        return;
-      }
-
-      const latest = entries[0]; // newest first
-      const videoId = latest.getElementsByTagName('yt:videoId')[0].textContent;
-      const title = latest.getElementsByTagName('title')[0].textContent;
-      const published = latest.getElementsByTagName('published')[0].textContent;
-      const year = new Date(published).getFullYear();
-
-      let description = '';
-      const mediaGroup = latest.getElementsByTagName('media:group')[0];
-      if (mediaGroup) {
-        const descTag = mediaGroup.getElementsByTagName('media:description')[0];
-        if (descTag) description = descTag.textContent;
-      }
-
-      document.getElementById('latest-webinar-iframe').src =
-        `https://www.youtube.com/embed/${videoId}`;
-      document.getElementById('latest-webinar-iframe').title = title;
-
-      document.getElementById('webinar-tag').textContent = `${year}`;
-      document.getElementById('webinar-title').textContent = title;
-      document.getElementById('webinar-desc').innerHTML =
-        description.replace(/\n/g, '<br/>') || 'Watch our latest webinar session above.';
-
-    } catch (err) {
-      console.error('Failed to load latest webinar:', err);
-    }
-  }
-
-  loadLatestWebinar();
-</script>
 
 <!-- WORKSHOPS -->
 <section id="workshops">
