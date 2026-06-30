@@ -484,6 +484,7 @@
 </section> -->
 
  <!-- WEBINARS -->
+<!-- WEBINARS -->
 <section id="webinars">
   <div class="container">
     <p class="section-label">Latest webinar</p>
@@ -509,42 +510,39 @@
 </section>
 
 <script>
-  const CHANNEL_ID = 'UC7DohMANCKx2R8XK6aRM2qA';
+  const PLAYLIST_ID = 'PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC'; // ← from your playlist URL after "list="
 
   async function loadLatestWebinar() {
     try {
-      const rss = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+      const rss = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC}`;
       const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rss)}`;
 
       const res = await fetch(api);
       const data = await res.json();
 
       if (!data.items || data.items.length === 0) {
-        console.warn('No videos found.');
+        console.warn('No videos found in playlist.');
         return;
       }
 
-      const latest = data.items[0];
+      const latest = data.items[0]; // RSS feeds list newest first
       const videoId = latest.link.split('v=')[1];
       const title = latest.title;
-      const description = latest.description || 'Watch our latest webinar session above.';
+      const description = latest.description || '';
       const publishedAt = new Date(latest.pubDate);
       const year = publishedAt.getFullYear();
 
-      // Update iframe
       document.getElementById('latest-webinar-iframe').src =
         `https://www.youtube.com/embed/${videoId}`;
       document.getElementById('latest-webinar-iframe').title = title;
 
-      // Update meta
       document.getElementById('webinar-tag').textContent = `${year}`;
       document.getElementById('webinar-title').textContent = title;
       document.getElementById('webinar-desc').innerHTML =
-        description.replace(/\n/g, '<br/>');
+        description.replace(/\n/g, '<br/>') || 'Watch our latest webinar session above.';
 
     } catch (err) {
       console.error('Failed to load latest webinar:', err);
-      document.getElementById('webinar-title').textContent = 'Unable to load latest webinar.';
     }
   }
 
