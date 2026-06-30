@@ -30,7 +30,8 @@ lines = [l for l in description.split("\n") if l.strip() != ""]
 description = "\n".join(lines[:5])
 description_html = description.replace("\n", "<br/>")
 
-with open("index.html", "r", encoding="utf-8") as f:
+# READ from the template (never overwritten)
+with open("index_template.html", "r", encoding="utf-8") as f:
     html = f.read()
 
 html = re.sub(r"<!--WEBINAR_VIDEO_ID-->", video_id, html)
@@ -38,6 +39,7 @@ html = re.sub(r"<!--WEBINAR_TITLE-->", title, html)
 html = re.sub(r"<!--WEBINAR_YEAR-->", year, html)
 html = re.sub(r"<!--WEBINAR_DESC-->", description_html, html)
 
+# WRITE to the live file (this is what changed)
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html)
 
