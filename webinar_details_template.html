@@ -38,6 +38,13 @@
       .thumb-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: .82rem; color: rgba(168,213,188,.75);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--leaf); }
+
     
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -250,7 +257,12 @@
     <img class="footer-logo-img"
          src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png"
          alt="CDWF Logo" />
-    <p><a href="index.html">← Back to CDWF Home</a></p>
+    <div style="display:flex; gap:1.5rem; justify-content:center; margin-bottom:.5rem;">
+      <a href="index.html#about">About</a>
+      <a href="index.html#team">Team</a>
+      <a href="index.html#webinars">Webinars</a>
+      <a href="index.html#workshops">Workshops</a>
+    </div>
     <p style="margin-top:.5rem; opacity:.6;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
   </div>
 </footer>
