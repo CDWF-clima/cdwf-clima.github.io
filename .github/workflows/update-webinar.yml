@@ -23,6 +23,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html index_template.html webinar_details.html webinar_details_template.html
+          git add index.html index_template.html webinar_details.html webinar_details_template.html workshop_details.html workshop_details_template.html
           git diff --staged --quiet || git commit -m "Auto-update latest webinar"
           git push
