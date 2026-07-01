@@ -18,6 +18,26 @@
       --text:  #1a1a2e;
     }
 
+    .thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.thumb-item { text-decoration: none; color: inherit; display: block; }
+.thumb-item img {
+  width: 100%; border-radius: 6px; display: block;
+  aspect-ratio: 16/9; object-fit: cover; transition: opacity .2s;
+}
+.thumb-item:hover img { opacity: .85; }
+.thumb-title {
+  font-size: .78rem; margin-top: .4rem;
+  color: #5a6a80; line-height: 1.3;
+}
+@media (max-width: 600px) {
+  .thumb-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
@@ -184,66 +204,29 @@
 </div>
 
 <main>
-
-  <div class="placeholder-notice">
-    <span class="notice-icon">📌</span>
-    <div>
-      <strong>For maintainers:</strong> This page will grow as CDWF conducts more workshops and
-      special events. Add new entries following the card pattern below. The current listing
-      includes the panel discussion held at National Space Day 2025 as a representative entry.
-    </div>
-  </div>
-
-  <!-- ── 2025 ── -->
   <div class="year-block">
-    <div class="year-heading">
-      <span class="year-label">2025</span>
-      <div class="year-line"></div>
-    </div>
-    <div class="workshop-list">
-
-      <div class="workshop-card">
-        <div class="ws-badge">Panel<br/>Discussion</div>
-        <div class="ws-body">
-          <p class="ws-event-type">Special Event · National Space Day 2025</p>
-          <p class="ws-title">Panel Discussion on Career in Climate Sciences</p>
-          <p class="ws-detail">
-            22 August 2025 &nbsp;·&nbsp; Conducted at the National Space Day 2025 celebration.<br/>
-            A candid panel conversation on navigating pathways into climate and atmospheric sciences,
-            bringing together practitioners and researchers from across the field.
-          </p>
-          <a class="ws-link" href="https://youtu.be/ooqKCNq8yvs?si=_DIM84XflBjLOOce" target="_blank">
-            <span class="yt-icon"></span> Watch on YouTube
-          </a>
-        </div>
-      </div>
-
-    </div>
+  <div class="year-heading"><span class="year-label" style="font-size:1.6rem">Career in Climate Science</span><div class="year-line"></div></div>
+  <div class="thumb-grid">
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=ooqKCNq8yvs" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/ooqKCNq8yvs/hqdefault.jpg" alt="Panel Discussion on Career in Climate Sciences" loading="lazy"><p class="thumb-title">Panel Discussion on Career in Climate Sciences</p></a>
   </div>
-
-  <!-- Future entries can be added here following the same pattern:
-
-  <div class="year-block">
-    <div class="year-heading">
-      <span class="year-label">2026</span>
-      <div class="year-line"></div>
-    </div>
-    <div class="workshop-list">
-      <div class="workshop-card">
-        <div class="ws-badge">WS</div>
-        <div class="ws-body">
-          <p class="ws-event-type">Workshop</p>
-          <p class="ws-title">Title of Workshop</p>
-          <p class="ws-detail">Date · Details about the event.</p>
-          <a class="ws-link" href="YOUTUBE_LINK" target="_blank">
-            <span class="yt-icon"></span> Watch on YouTube
-          </a>
-        </div>
-      </div>
-    </div>
+</div>
+<div class="year-block">
+  <div class="year-heading"><span class="year-label" style="font-size:1.6rem">ML for Weather and Climate Prediction</span><div class="year-line"></div></div>
+  <div class="thumb-grid">
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=GLuhUQmRz4I" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/GLuhUQmRz4I/hqdefault.jpg" alt="Machine Learning for Weather and Climate Prediction : Day 4  2Apr2026" loading="lazy"><p class="thumb-title">Machine Learning for Weather and Climate Prediction : Day 4  2Apr2026</p></a>
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=X_8uBt8TcjY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/X_8uBt8TcjY/hqdefault.jpg" alt="Machine Learning for Weather and Climate Prediction : Day 3  1Apr2026" loading="lazy"><p class="thumb-title">Machine Learning for Weather and Climate Prediction : Day 3  1Apr2026</p></a>
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=bnG5guub7mM" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/bnG5guub7mM/hqdefault.jpg" alt="Machine Learning for Weather and Climate Prediction : Day 2   31Mar2026" loading="lazy"><p class="thumb-title">Machine Learning for Weather and Climate Prediction : Day 2   31Mar2026</p></a>
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=4geQKYbUeYg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/4geQKYbUeYg/hqdefault.jpg" alt="Machine Learning for Weather and Climate Prediction : Day 1   30Mar2026" loading="lazy"><p class="thumb-title">Machine Learning for Weather and Climate Prediction : Day 1   30Mar2026</p></a>
   </div>
-
-  -->
+</div>
+<div class="year-block">
+  <div class="year-heading"><span class="year-label" style="font-size:1.6rem">Science Communication</span><div class="year-line"></div></div>
+  <div class="thumb-grid">
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=BPUEXfC4WSI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/BPUEXfC4WSI/hqdefault.jpg" alt="Northeast India: A Journey Through Nature's Lab" loading="lazy"><p class="thumb-title">Northeast India: A Journey Through Nature's Lab</p></a>
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=y3dN4ynXpeI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/y3dN4ynXpeI/hqdefault.jpg" alt="A Bridge Over The River:: A Climate Change Communication film using performative art" loading="lazy"><p class="thumb-title">A Bridge Over The River:: A Climate Change Communication film using performative art</p></a>
+    <a class="thumb-item" href="https://www.youtube.com/watch?v=OoDbC0q2BW4" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/OoDbC0q2BW4/hqdefault.jpg" alt="Climate Change Communication through Ojapali" loading="lazy"><p class="thumb-title">Climate Change Communication through Ojapali</p></a>
+  </div>
+</div>
 
 </main>
 
