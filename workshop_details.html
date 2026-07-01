@@ -8,12 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    <style>
     :root {
       --green:       #008047;
       --green-dark:  #005c33;
       --green-deep:  #003d22;
-      --green-light: #e6f4ed;
       --gold:        #f0a500;
       --cream:       #f8f5ef;
       --white:       #ffffff;
@@ -23,175 +21,98 @@
     }
 
     .thumb-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-.thumb-item { text-decoration: none; color: inherit; display: block; }
-.thumb-item img {
-  width: 100%; border-radius: 6px; display: block;
-  aspect-ratio: 16/9; object-fit: cover; transition: opacity .2s;
-}
-.thumb-item:hover img { opacity: .85; }
-.thumb-title {
-  font-size: .78rem; margin-top: .4rem;
-  color: #5a6a80; line-height: 1.3;
-}
-@media (max-width: 600px) {
-  .thumb-grid { grid-template-columns: repeat(2, 1fr); }
-}
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .thumb-item { text-decoration: none; color: inherit; display: block; }
+    .thumb-item img {
+      width: 100%; border-radius: 6px; display: block;
+      aspect-ratio: 16/9; object-fit: cover; transition: opacity .2s;
+    }
+    .thumb-item:hover img { opacity: .85; }
+    .thumb-title { font-size: .78rem; margin-top: .4rem; color: var(--text-mid); line-height: 1.3; }
+    @media (max-width: 600px) {
+      .thumb-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: .82rem; color: rgba(168,213,188,.75);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--leaf); }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--light);
-      color: var(--text);
-    }
-
-    /* NAV */
     nav {
-      background: var(--sky);
+      background: var(--green-deep);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2.5rem;
-      border-bottom: 1px solid rgba(168,205,214,.15);
+      padding: .75rem 2.5rem;
+      border-bottom: 1px solid rgba(0,128,71,.3);
     }
-    .nav-logo {
+    .nav-brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+    .nav-brand img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav-brand-text {
       font-family: 'Playfair Display', serif;
-      color: var(--mist); text-decoration: none; font-size: 1.05rem;
+      font-size: .95rem; color: var(--leaf); letter-spacing: .06em;
     }
-    .nav-back {
-      font-size: .82rem; color: rgba(168,205,214,.7); text-decoration: none;
-      display: flex; align-items: center; gap: .4rem; transition: color .2s;
-    }
-    .nav-back:hover { color: var(--mist); }
-    .nav-back::before { content: '←'; }
 
-    /* PAGE HEADER */
     .page-header {
-      background: linear-gradient(145deg, #0d2b45 0%, #1a4a6b 60%, #2e4a3a 100%);
+      background: var(--green-deep);
       padding: 3.5rem 2rem 5rem;
-      text-align: center;
-      position: relative; overflow: hidden;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-header-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,128,71,.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,128,71,.1) 1px, transparent 1px);
+      background-size: 50px 50px;
     }
     .page-header::after {
-      content: '';
-      position: absolute; bottom: -2px; left: 0; right: 0;
-      height: 60px;
-      background: var(--light);
-      clip-path: ellipse(55% 100% at 50% 100%);
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+      background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%);
     }
+    .page-logo { position: relative; z-index: 2; margin-bottom: 1.5rem; }
+    .page-logo img { height: 70px; width: auto; filter: brightness(0) invert(1) opacity(.9); }
     .page-kicker {
+      position: relative; z-index: 2;
       font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: .75rem;
+      color: var(--gold); margin-bottom: .75rem;
     }
     .page-title {
+      position: relative; z-index: 2;
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      color: #fff; line-height: 1.15;
+      font-size: clamp(2rem, 5vw, 3.4rem); color: var(--white); line-height: 1.15;
     }
-    .page-title em { font-style: italic; color: var(--mist); }
+    .page-title em { font-style: italic; color: var(--leaf); }
     .page-subtitle {
-      margin-top: 1rem; color: rgba(255,255,255,.6);
-      font-size: .95rem; font-weight: 300;
+      position: relative; z-index: 2;
+      margin-top: 1rem; color: rgba(255,255,255,.6); font-size: .95rem; font-weight: 300;
     }
 
-    /* MAIN */
-    main { max-width: 860px; margin-inline: auto; padding: 4rem 1.5rem 6rem; }
+    main { max-width: 960px; margin-inline: auto; padding: 4rem 1.5rem 6rem; }
 
-    /* ADD NOTICE */
-    .placeholder-notice {
-      background: #fff; border: 1.5px dashed rgba(46,125,138,.35);
-      border-radius: .75rem; padding: 2rem 2rem;
-      color: #6a7a90; font-size: .9rem; line-height: 1.75;
-      margin-bottom: 3rem;
-      display: flex; gap: 1rem; align-items: flex-start;
-    }
-    .notice-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
-
-    /* YEAR SECTION */
     .year-block { margin-bottom: 3.5rem; }
-    .year-heading {
-      display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;
-    }
+    .year-heading { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
     .year-label {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem; color: var(--sky); font-weight: 700;
+      font-size: 1.6rem; color: var(--green-dark); font-weight: 700;
     }
-    .year-line { flex: 1; height: 1px; background: rgba(13,43,69,.15); }
+    .year-line { flex: 1; height: 2px; background: var(--green); opacity: .25; border-radius: 1px; }
 
-    /* WORKSHOP CARD */
-    .workshop-list { display: flex; flex-direction: column; gap: .85rem; }
-
-    .workshop-card {
-      display: flex; align-items: flex-start; gap: 1.1rem;
-      background: #fff; border: 1px solid rgba(13,43,69,.08);
-      border-radius: .6rem; padding: 1rem 1.25rem;
-      transition: box-shadow .2s, border-color .2s;
-    }
-    .workshop-card:hover {
-      box-shadow: 0 4px 18px rgba(13,43,69,.1);
-      border-color: rgba(46,125,138,.25);
-    }
-
-    .ws-badge {
-      min-width: 2.4rem; height: 2.4rem;
-      background: linear-gradient(135deg, #2e7d8a, #1a4a6b);
-      color: var(--mist); border-radius: .4rem;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .6rem; font-weight: 500; letter-spacing: .03em;
-      flex-shrink: 0; margin-top: .1rem; text-align: center; line-height: 1.2;
-      padding: .2rem;
-    }
-
-    .ws-body { flex: 1; }
-
-    .ws-event-type {
-      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: .3rem; font-weight: 500;
-    }
-
-    .ws-title {
-      font-family: 'Playfair Display', serif;
-      font-size: .98rem; color: var(--sky); line-height: 1.35; margin-bottom: .3rem;
-    }
-
-    .ws-detail {
-      font-size: .8rem; color: #5a6a80; font-weight: 300; line-height: 1.55;
-    }
-
-    .ws-link {
-      display: inline-flex; align-items: center; gap: .3rem;
-      margin-top: .55rem; font-size: .78rem; font-weight: 500;
-      color: var(--teal); text-decoration: none;
-      border-bottom: 1px dotted rgba(46,125,138,.4);
-      padding-bottom: .05rem; transition: color .2s;
-    }
-    .ws-link:hover { color: var(--ocean); }
-
-    .yt-icon {
-      display: inline-block; width: 16px; height: 11px;
-      background: #ff0000; border-radius: 3px;
-      position: relative; flex-shrink: 0;
-    }
-    .yt-icon::after {
-      content: '';
-      position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%);
-      border-top: 3.5px solid transparent;
-      border-bottom: 3.5px solid transparent;
-      border-left: 6px solid #fff;
-    }
-
-    /* FOOTER */
     footer {
-      background: var(--sky); text-align: center;
-      padding: 2.5rem 1.5rem; color: rgba(168,205,214,.6); font-size: .8rem;
-      border-top: 1px solid rgba(168,205,214,.1);
+      background: var(--green-deep); text-align: center; padding: 2.5rem 1.5rem;
+      color: rgba(168,213,188,.6); font-size: .8rem; border-top: 3px solid var(--green);
     }
-    footer a { color: var(--mist); text-decoration: none; }
-    footer a:hover { color: var(--warm); }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+    .footer-logo-img { height: 44px; width: auto; margin-bottom: .3rem; filter: brightness(0) invert(1) opacity(.75); }
+    footer a { color: var(--leaf); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
   </style>
 </head>
 <body>
@@ -201,10 +122,19 @@
     <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png" alt="CDWF Logo" />
     <span class="nav-brand-text">CDWF</span>
   </a>
-  <a class="nav-back" href="index.html">Back to home</a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#team">Team</a>
+    <a href="index.html#webinars">Webinars</a>
+    <a href="index.html#workshops">Workshops</a>
+  </div>
 </nav>
 
 <div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="page-logo">
+    <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png" alt="CDWF Logo" />
+  </div>
   <p class="page-kicker">Archive</p>
   <h1 class="page-title">Workshop <em>Events</em></h1>
   <p class="page-subtitle">Hands-on sessions, panel discussions, and special events by CDWF</p>
@@ -238,8 +168,18 @@
 </main>
 
 <footer>
-  <p><a href="index.html">← Back to CDWF Home</a></p>
-  <p style="margin-top:.75rem; opacity:.7;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
+  <div class="footer-inner">
+    <img class="footer-logo-img"
+         src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png"
+         alt="CDWF Logo" />
+    <div style="display:flex; gap:1.5rem; justify-content:center; margin-bottom:.5rem;">
+      <a href="index.html#about">About</a>
+      <a href="index.html#team">Team</a>
+      <a href="index.html#webinars">Webinars</a>
+      <a href="index.html#workshops">Workshops</a>
+    </div>
+    <p style="margin-top:.5rem; opacity:.6;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
+  </div>
 </footer>
 
 </body>
