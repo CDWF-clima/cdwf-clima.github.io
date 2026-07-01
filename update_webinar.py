@@ -20,8 +20,8 @@ WEBINAR_HARDCODED = {
 
 # ── Workshop playlists ─────────────────────────────────────────────────────────
 WORKSHOP_PLAYLISTS = {
-    "Career in Climate Science":                    "PLBdpDWAkenAQ",
     "ML for Weather and Climate Prediction":        "PLSGSXuijkB6l2gIzgafo0DmKDyZYdIS_L",
+    "Career in Climate Science":                    "PLBdpDWAkenAQ",
     "Science Communication":                        "PLSGSXuijkB6kcmKiMYusNlMLn201JhjBX",
 }
 
