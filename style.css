@@ -37,12 +37,12 @@ nav {
   text-decoration: none;
 }
 .nav-brand img {
-  height: 54px; width: auto;
+  height: 65px; width: auto;
   filter: brightness(0) invert(1);
 }
 .nav-brand-text {
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; font-weight: 700; color: var(--leaf); letter-spacing: .06em;
+  font-size: 1.5rem; font-weight: 700; color: var(--leaf); letter-spacing: .06em;
 }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
