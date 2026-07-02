@@ -12,7 +12,6 @@
   --leaf:        #a8d5bc;
 }
 
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -27,7 +26,7 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
-  padding: .7rem 2.5rem;
+  padding: .5rem 2.5rem;
   background: rgba(0,61,34,.93);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0,128,71,.3);
@@ -38,18 +37,18 @@ nav {
   text-decoration: none;
 }
 .nav-brand img {
-  height: 36px; width: auto;
+  height: 54px; width: auto;
   filter: brightness(0) invert(1);
 }
 .nav-brand-text {
   font-family: 'Playfair Display', serif;
-  font-size: .95rem; color: var(--leaf); letter-spacing: .06em;
+  font-size: 1.2rem; font-weight: 700; color: var(--leaf); letter-spacing: .06em;
 }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   color: rgba(255,255,255,.75); text-decoration: none;
-  font-size: .85rem; font-weight: 400; letter-spacing: .05em;
+  font-size: 1rem; font-weight: 400; letter-spacing: .05em;
   transition: color .2s;
 }
 .nav-links a:hover { color: var(--leaf); }
