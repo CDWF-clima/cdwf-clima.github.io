@@ -26,23 +26,29 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
-  padding: -0.50rem 2.5rem;
+  height: 68px;
+  padding: 0 2.5rem;
   background: rgba(0,61,34,.93);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0,128,71,.3);
+  overflow: visible;
 }
 
 .nav-brand {
-  display: flex; align-items: center; gap: .7rem;
+  display: flex; align-items: flex-start; gap: .8rem;
   text-decoration: none;
+  align-self: flex-start;
+  padding-top: 2px;
 }
 .nav-brand img {
-  height: 65px; width: auto;
+  height: 130px; width: auto;
   filter: brightness(0) invert(1);
+  flex-shrink: 0;
 }
 .nav-brand-text {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem; font-weight: 700; color: var(--leaf); letter-spacing: .06em;
+  margin-top: 22px;
 }
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
