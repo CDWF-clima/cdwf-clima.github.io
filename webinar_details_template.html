@@ -7,19 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --green:       #008047;
-      --green-dark:  #005c33;
-      --green-deep:  #003d22;
-      --green-light: #e6f4ed;
-      --gold:        #f0a500;
-      --cream:       #f8f5ef;
-      --white:       #ffffff;
-      --text:        #1a2e23;
-      --text-mid:    #3a5045;
-      --leaf:        #a8d5bc;
-    }
+    /* Page-specific overrides and archive-only styles */
+    body { background: var(--cream); color: var(--text); }
 
     .thumb-grid {
       display: grid;
@@ -38,53 +29,10 @@
       .thumb-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a {
-      font-size: .82rem; color: rgba(168,213,188,.75);
-      text-decoration: none; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--leaf); }
-
-    
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-    }
-
-    /* NAV */
-    nav {
-      background: var(--green-deep);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: .75rem 2.5rem;
-      border-bottom: 1px solid rgba(0,128,71,.3);
-    }
-    .nav-brand {
-      display: flex; align-items: center; gap: .7rem;
-      text-decoration: none;
-    }
-    .nav-brand img {
-      height: 34px; width: auto;
-      filter: brightness(0) invert(1);
-    }
-    .nav-brand-text {
-      font-family: 'Playfair Display', serif;
-      font-size: .95rem; color: var(--leaf); letter-spacing: .06em;
-    }
-    .nav-back {
-      font-size: .82rem; color: rgba(168,213,188,.75); text-decoration: none;
-      display: flex; align-items: center; gap: .4rem; transition: color .2s;
-    }
-    .nav-back:hover { color: var(--leaf); }
-    .nav-back::before { content: '←'; }
-
-    /* PAGE HEADER */
+    /* PAGE HEADER (archive-specific hero band, offset for the fixed nav) */
     .page-header {
       background: var(--green-deep);
-      padding: 3.5rem 2rem 5rem;
+      padding: 8rem 2rem 5rem;
       text-align: center;
       position: relative; overflow: hidden;
     }
@@ -100,13 +48,6 @@
       position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
       background: var(--cream);
       clip-path: ellipse(55% 100% at 50% 100%);
-    }
-    .page-logo {
-      position: relative; z-index: 2; margin-bottom: 1.5rem;
-    }
-    .page-logo img {
-      height: 70px; width: auto;
-      filter: brightness(0) invert(1) opacity(.9);
     }
     .page-kicker {
       position: relative; z-index: 2;
@@ -131,7 +72,6 @@
 
     /* YEAR SECTION */
     .year-block { margin-bottom: 3.5rem; }
-
     .year-heading {
       display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;
     }
@@ -206,44 +146,29 @@
       position: absolute; top: 50%; left: 50%; transform: translate(-45%, -50%);
       color: #fff; font-size: 11px; font-weight: 700; font-family: serif;
     }
-
-    /* FOOTER */
-    footer {
-      background: var(--green-deep);
-      text-align: center; padding: 2.5rem 1.5rem;
-      color: rgba(168,213,188,.6); font-size: .8rem;
-      border-top: 3px solid var(--green);
-    }
-    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
-    .footer-logo-img {
-      height: 44px; width: auto; margin-bottom: .3rem;
-      filter: brightness(0) invert(1) opacity(.75);
-    }
-    footer a { color: var(--leaf); text-decoration: none; }
-    footer a:hover { color: var(--gold); }
   </style>
 </head>
 <body>
 
+<!-- NAV (shared across all pages) -->
 <nav>
   <a class="nav-brand" href="index.html">
     <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png" alt="CDWF Logo" />
     <span class="nav-brand-text">CDWF</span>
   </a>
-  <div class="nav-links">
-    <a href="index.html#about">About</a>
-    <a href="index.html#team">Team</a>
-    <a href="index.html#webinars">Webinars</a>
-    <a href="index.html#workshops">Workshops</a>
-  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="webinar_details.html" class="active">Webinars</a></li>
+    <li><a href="workshop_details.html">Workshops</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
 </nav>
 
 <div class="page-header">
   <div class="page-header-grid"></div>
-  <!-- <div class="page-logo">
-    <img src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png" alt="CDWF Logo" />
-  </div>
-  <p class="page-kicker">Archive</p> -->
   <h1 class="page-title">Webinar <em>Sessions</em></h1>
   <p class="page-subtitle">Year-wise listing of all Climate Dialogues: Way Forward webinars</p>
 </div>
@@ -252,18 +177,17 @@
   <!--WEBINAR_ARCHIVE-->
 </main>
 
+<!-- FOOTER (shared across all pages) -->
 <footer>
   <div class="footer-inner">
-    <!-- <img class="footer-logo-img"
-         src="https://raw.githubusercontent.com/CDWF-clima/cdwf-clima.github.io/main/CDWF.png"
-         alt="CDWF Logo" />
-    <div style="display:flex; gap:1.5rem; justify-content:center; margin-bottom:.5rem;">
-      <a href="index.html#about">About</a>
-      <a href="index.html#team">Team</a>
-      <a href="index.html#webinars">Webinars</a>
-      <a href="index.html#workshops">Workshops</a> -->
-    </div>
-    <p style="margin-top:.5rem; opacity:.6;">© 2022 – 2026 Climate Dialogues: Way Forward</p>
+    <p>
+      <a href="https://www.youtube.com/playlist?list=PLvXKwpIB33yPgLsogJIIt73BD6PW1b8xb" target="_blank">YouTube Playlist</a> &nbsp;·&nbsp;
+      <a href="https://www.facebook.com/anaajoree" target="_blank">Facebook / Anaajoree</a> &nbsp;·&nbsp;
+      <a href="mailto:climatedialogueswayforward@gmail.com">climatedialogueswayforward@gmail.com</a>
+    </p>
+    <p style="margin-top:.6rem; font-size:.75rem; opacity:.45;">
+      © 2022 – 2026 Climate Dialogues: Way Forward. All rights reserved.
+    </p>
   </div>
 </footer>
 
