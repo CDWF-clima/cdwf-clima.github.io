@@ -41,7 +41,7 @@ nav {
   padding-top: 2px;
 }
 .nav-brand img {
-  height: 90px; width: auto;
+  height: 70px; width: auto;
   filter: brightness(0) invert(1);
   flex-shrink: 0;
 }
