@@ -246,18 +246,25 @@ section { padding: 5rem 1.5rem; }
 }
 .team-name a:hover { color: var(--leaf); }
 
-/* ── VIDEO SECTIONS (frame only, no description) ── */
-#webinars { background: var(--green-light); color: var(--text); }
-#webinars .section-label { color: var(--green); }
+/* ── VIDEO SECTION (webinar + workshop side by side, frame only) ── */
+#videos { background: var(--green-light); color: var(--text); }
+#videos .section-label { color: var(--green); }
 
-#workshops { background: var(--cream); color: var(--text); }
-#workshops .section-label { color: var(--green); }
-
-.video-frame {
+.video-row {
   margin-top: 1.5rem;
-  max-width: 800px;
-  margin-inline: auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+@media (max-width: 760px) {
+  .video-row { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.video-col { text-align: center; }
+
+.video-col-label {
+  font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--green-dark); font-weight: 500; margin-bottom: .75rem;
 }
 
 .video-wrapper {
