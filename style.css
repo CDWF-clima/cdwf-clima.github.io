@@ -49,8 +49,6 @@ nav {
 .nav-brand img {
   height: 100px; width: auto;
   flex-shrink: 0;
-  mix-blend-mode: multiply;
-  background: transparent;
 }
 
 .nav-brand-text {
