@@ -39,17 +39,21 @@ nav {
   text-decoration: none;
   align-self: flex-start;
   padding-top: 2px;
+  position: relative;
+  z-index: 5;
+}
+
+.nav-brand img {
+  height: 100px; width: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
 }
 /* .nav-brand img {
   height: 100px; width: auto;
   filter: brightness(0) invert(1);
   flex-shrink: 0;
 } */
-
-.nav-brand img {
-  height: 100px; width: auto;
-  flex-shrink: 0;
-}
 
 .nav-brand-text {
   font-family: 'Playfair Display', serif;
