@@ -279,64 +279,101 @@ section { padding: 5rem 1.5rem; }
 }
 .contact-link:hover { opacity: .85; }
 
+/* ── INFO ROW (interns + fellowship side by side) ── */
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  align-items: stretch;
+}
+
+.info-row > * {
+  flex: 1 1 320px;
+}
+
 /* ── INTERN CARD ── */
 .intern-card {
-  max-width: 640px;
-  margin: 3rem auto 0;
-  background: var(--green-deep);
+  background: var(--green-dark);
   border-radius: 1rem;
-  padding: 2.25rem 2.5rem;
+  padding: 2rem 2.25rem;
   color: var(--white);
-  box-shadow: 0 12px 40px rgba(0,61,34,.18);
+  border-top: 4px solid var(--gold);
 }
 
 .intern-card-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 1.75rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: var(--leaf);
+  margin-bottom: 1.5rem;
 }
 
-.intern-group {
-  margin-bottom: 1.75rem;
-}
-.intern-group:last-child {
-  margin-bottom: 0;
-}
+.intern-group { margin-bottom: 1.5rem; }
+.intern-group:last-child { margin-bottom: 0; }
 
 .intern-group-label {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
   font-size: .95rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.6);
-  margin-bottom: .75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+  margin-bottom: .6rem;
 }
 
 .intern-list {
   list-style: none;
   padding-left: 0;
-  margin-left: 2rem;
   counter-reset: intern-counter;
 }
 
 .intern-list li {
   counter-increment: intern-counter;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--white);
-  padding: .3rem 0 .3rem 1.6rem;
+  font-size: .9rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.8);
+  padding: .35rem 0 .35rem 1.8rem;
   position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
+.intern-list li:last-child { border-bottom: none; }
 
 .intern-list li::before {
   content: counter(intern-counter) ".";
   position: absolute;
   left: 0;
   color: var(--gold);
+  font-weight: 500;
+}
+
+/* ── FELLOWSHIP CARD ── */
+.fellowship-card {
+  background: #0d2947;
+  border-radius: 1rem;
+  padding: 2rem 2.25rem;
+  color: var(--white);
+}
+
+.fellowship-card-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
   font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.6rem;
+}
+
+.fellowship-item { margin-bottom: 1.4rem; }
+.fellowship-item:last-child { margin-bottom: 0; }
+
+.fellowship-label {
+  font-size: .9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.65);
+  margin-bottom: .3rem;
+}
+
+.fellowship-value {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--white);
 }
 
 /* ── TEAM ── */
