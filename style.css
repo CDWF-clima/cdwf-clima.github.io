@@ -40,11 +40,17 @@ nav {
   align-self: flex-start;
   padding-top: 2px;
 }
-.nav-brand img {
+/* .nav-brand img {
   height: 100px; width: auto;
   filter: brightness(0) invert(1);
   flex-shrink: 0;
+} */
+
+.nav-brand img {
+  height: 100px; width: auto;
+  flex-shrink: 0;
 }
+
 .nav-brand-text {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem; font-weight: 700; color: var(--leaf); letter-spacing: .06em;
