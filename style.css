@@ -304,7 +304,7 @@ section { padding: 5rem 1.5rem; }
 
 .intern-card-title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.35rem;
+  font-size: 1.0rem;
   color: var(--leaf);
   margin-bottom: 1.5rem;
 }
@@ -327,7 +327,7 @@ section { padding: 5rem 1.5rem; }
 
 .intern-list li {
   counter-increment: intern-counter;
-  font-size: .9rem;
+  font-size: .65rem;
   font-weight: 300;
   color: rgba(255,255,255,.8);
   padding: .35rem 0 .35rem 1.8rem;
@@ -353,9 +353,9 @@ section { padding: 5rem 1.5rem; }
 }
 
 .fellowship-card-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase
+  font-weight: 300;
   color: var(--white);
   margin-bottom: 1.6rem;
 }
@@ -364,15 +364,15 @@ section { padding: 5rem 1.5rem; }
 .fellowship-item:last-child { margin-bottom: 0; }
 
 .fellowship-label {
-  font-size: .9rem;
-  font-weight: 600;
+  font-size: .65rem;
+  font-weight: 300;
   color: rgba(255,255,255,.65);
   margin-bottom: .3rem;
 }
 
 .fellowship-value {
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 0.65rem;
+  font-weight: 300;
   color: var(--white);
 }
 
