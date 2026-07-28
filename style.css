@@ -400,6 +400,18 @@ section { padding: 5rem 1.5rem; }
   color: var(--gold); margin-bottom: .6rem; display: block;
 }
 
+.project-meta {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.project-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--green-deep);
