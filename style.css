@@ -345,7 +345,7 @@ section { padding: 5rem 1.5rem; }
   background: var(--white);
   border: 1px solid rgba(0,128,71,.25)
   border-radius: 2rem;
-  padding: 2rem 1.5rem;
+  padding: 2rem 2.25rem;
   color: var(--white);
   border-top: 4px solid var(--gold);
 }
@@ -363,9 +363,9 @@ section { padding: 5rem 1.5rem; }
 
 .intern-entry {
   background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
+  border: none; /*1px solid rgba(255,255,255,.1);*/
   border-radius: .6rem;
-  padding: 1.1rem 1.3rem;
+  padding: 0; /*1.1rem 1.3rem;*/
   margin-bottom: 1rem;
 }
 .intern-entry:last-child { margin-bottom: 0; }
