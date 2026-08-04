@@ -313,6 +313,7 @@ section { padding: 5rem 1.5rem; }
   border-radius: 5rem;
   padding: 2rem 1.5rem;
   color: var(--white);
+  max-width: 380px;   /* 👈 add this to control its width directly */
 }
 
 .fellowship-card-title {
