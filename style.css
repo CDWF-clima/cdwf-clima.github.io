@@ -374,6 +374,51 @@ section { padding: 5rem 1.5rem; }
   color: var(--gold);
 }
 
+.intern-entry {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: .6rem;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1rem;
+}
+.intern-entry:last-child { margin-bottom: 0; }
+
+.intern-name {
+  font-family: 'Playfair Display', serif;
+  font-size: .95rem;
+  color: var(--white);
+  margin-bottom: .3rem;
+}
+
+.intern-meta {
+  font-size: .68rem;
+  font-weight: 300;
+  color: var(--leaf);
+  margin-bottom: .7rem;
+}
+.intern-meta em { font-style: italic; }
+
+.intern-project-label {
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: .4rem;
+}
+
+.intern-topics {
+  list-style: disc;
+  padding-left: 1.1rem;
+}
+
+.intern-topics li {
+  font-size: .68rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.75);
+  padding: .15rem 0;
+}
+
 /* ── FELLOWSHIP CARD ── */
 .fellowship-card {
   background: var(--green-dark);
