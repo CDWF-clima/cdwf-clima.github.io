@@ -311,7 +311,7 @@ section { padding: 5rem 1.5rem; }
 .fellowship-card {
   background: var(--green-dark);
   border-radius: 1rem;
-  padding: 5rem 2.25rem;
+  padding: 2rem 1.5rem;
   color: var(--white);
 }
 
@@ -343,7 +343,7 @@ section { padding: 5rem 1.5rem; }
 .intern-card {
   background: var(--green-dark);
   border-radius: 1rem;
-  padding: 2rem 2.25rem;
+  padding: 2rem 3.0rem;
   color: var(--white);
   border-top: 4px solid var(--gold);
 }
