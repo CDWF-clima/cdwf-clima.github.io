@@ -311,7 +311,7 @@ section { padding: 5rem 1.5rem; }
 .fellowship-card {
   background: var(--green-dark);
   border-radius: 1rem;
-  padding: 2rem 2.25rem;
+  padding: 5rem 2.25rem;
   color: var(--white);
 }
 
