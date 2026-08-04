@@ -579,10 +579,10 @@ section { padding: 5rem 1.5rem; }
 }
 .content-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; color: var(--green-dark); margin-bottom: .6rem;
+  font-size: 0.85rem; color: var(--green-dark); margin-bottom: .6rem;
 }
 .content-card p {
-  font-size: .9rem; line-height: 1.7; color: var(--text-mid); font-weight: 300;
+  font-size: .65rem; line-height: 1.7; color: var(--text-mid); font-weight: 300;
 }
 .content-card .card-tag {
   font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
@@ -598,7 +598,7 @@ section { padding: 5rem 1.5rem; }
 }
 
 .project-meta {
-  font-size: 0.82rem;
+  font-size: 0.65rem;
   line-height: 1.6;
   margin-bottom: 0.75rem;
 }
