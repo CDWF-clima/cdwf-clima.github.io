@@ -310,7 +310,7 @@ section { padding: 5rem 1.5rem; }
 /* ── FELLOWSHIP CARD ── */
 .fellowship-card {
   background: var(--green-dark);
-  border-radius: 5rem;
+  border-radius: 1rem;
   padding: 2rem 1.5rem;
   color: var(--white);
   max-width: 380px;   /* 👈 add this to control its width directly */
@@ -342,9 +342,10 @@ section { padding: 5rem 1.5rem; }
 
 /* ── INTERN CARD (Current Interns — green) ── */
 .intern-card {
-  background: var(--green-dark);
+  background: var(--white);
+  border: 1px solid rgba(0,128,71,.25)
   border-radius: 1rem;
-  padding: 2rem 3.0rem;
+  padding: 2rem;
   color: var(--white);
   border-top: 4px solid var(--gold);
 }
@@ -352,7 +353,8 @@ section { padding: 5rem 1.5rem; }
 .intern-card-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
-  color: var(--leaf);
+  /* color: var(--leaf); */
+  color: var(--green-dark);
   margin-bottom: 1.5rem;
 }
 
