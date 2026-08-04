@@ -344,6 +344,36 @@ section { padding: 5rem 1.5rem; }
   font-weight: 500;
 }
 
+.intern-dates {
+  font-size: .6rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.55);
+}
+
+.intern-involvement {
+  list-style: none;
+  margin-top: .35rem;
+  padding-left: 1rem;
+}
+
+.intern-involvement li {
+  font-size: .6rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.65);
+  padding: .15rem 0 .15rem 1.2rem;
+  position: relative;
+  border-bottom: none;
+}
+
+.intern-involvement li::counter-increment: none; /* prevent inheriting parent's counter */
+
+.intern-involvement li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
 /* ── FELLOWSHIP CARD ── */
 .fellowship-card {
   background: var(--green-dark);
