@@ -136,14 +136,14 @@ nav {
   filter: grayscale(100%) brightness(0.55);
   z-index: 0;
 }
-#projects .card-overlay {
+/* #projects .card-overlay {
   position: relative;
   z-index: 1;
   width: 100%;
   padding: 1.75rem;
   background: linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.35) 60%, transparent 100%);
-}
-#projects .card-overlay .card-tag {
+} */
+/* #projects .card-overlay .card-tag {
   color: var(--gold);
 }
 #projects .card-overlay h3 {
@@ -157,7 +157,7 @@ nav {
 }
 #projects .card-overlay .project-meta a {
   color: var(--leaf);
-}
+} */
 
 /* ── HERO ── */
 header {
