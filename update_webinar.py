@@ -3,6 +3,12 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 # ── Webinar season playlists ───────────────────────────────────────────────────
+WEBINAR_HARDCODED = {
+    "2022": [
+        {"id": "y2FTkbNrVsw", "title": "Introductory Session"},
+        {"id": "UN4AOWvf-cg", "title": "Clouds as we measure and understand"},
+    ]
+}
 SEASON_PLAYLISTS = {
     "2022": "PLSGSXuijkB6nllG5-O4U1Ut2dslgjiG5Q",
     "2023": "PLSGSXuijkB6l7xcbZfFBJLVnkkrQ8FiRi",
@@ -11,12 +17,7 @@ SEASON_PLAYLISTS = {
     "2026": "PLSGSXuijkB6lLMe8sZ3fDkReWrH_5HdWC",
 }
 
-WEBINAR_HARDCODED = {
-    "2022": [
-        {"id": "y2FTkbNrVsw", "title": "Introductory Session"},
-        {"id": "UN4AOWvf-cg", "title": "Clouds as we measure and understand"},
-    ]
-}
+
 
 # ── Workshop playlists ─────────────────────────────────────────────────────────
 WORKSHOP_PLAYLISTS = {
