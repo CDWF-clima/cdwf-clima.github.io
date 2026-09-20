@@ -459,6 +459,14 @@ section { padding: 5rem 1.5rem; }
   margin-bottom: 1.5rem;
 }
 
+.former-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+}
+
 .intern-entry-plain {
   border-bottom: none;
   padding: 0;
